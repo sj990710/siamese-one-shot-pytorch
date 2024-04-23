@@ -41,15 +41,14 @@ def prepare_dirs(config):
 def save_config(config):
     param_path = os.path.join(config.logs_dir, 'params.json')
 
-    if not os.path.isfile(param_path):
-        print(f"Save params in {param_path}")
+    if os.path.isfile(param_path):
+        print(f"[!] Config file already exists and will be overwritten at {param_path}")
+    
+    print(f"Save params in {param_path}")
 
-        all_params = config.__dict__
-        with open(param_path, 'w') as fp:
-            json.dump(all_params, fp, indent=4, sort_keys=True)
-    else:
-        print(f"[!] Config file already exist.")
-        raise ValueError
+    all_params = config.__dict__
+    with open(param_path, 'w') as fp:
+        json.dump(all_params, fp, indent=4, sort_keys=True)
 
 
 def load_config(config):
