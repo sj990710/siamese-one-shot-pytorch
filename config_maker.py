@@ -29,7 +29,7 @@ data_arg.add_argument('--num_train', type=int, default=90000,
                       help='# of images in train dataset')
 data_arg.add_argument('--batch_size', type=int, default=128,
                       help='# of images in each batch of data')
-data_arg.add_argument('--num_workers', type=int, default=0,
+data_arg.add_argument('--num_workers', type=int, default=4,
                       help='# of subprocesses to use for data loading')
 data_arg.add_argument('--pin_memory', type=str2bool, default=False,
                       help='Whether to save the pin memory')
